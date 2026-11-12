@@ -25,4 +25,8 @@ typedef struct Player {
 
 Player CreatePlayer(void);
 
+void PlayerMovement(Player *player);
+
+void PlayerAnimation(Player *player);
+
 #endif

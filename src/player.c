@@ -39,5 +39,6 @@ void PlayerAnimation(Player *player) {
     case CATCH:
     case DEATH:
     default:
+        break;
     }
 }

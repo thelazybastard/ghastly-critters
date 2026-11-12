@@ -1,3 +1,4 @@
+#include "player.h"
 #include <raylib.h>
 
 #define SCREEN_WIDTH 1280
@@ -7,14 +8,26 @@
 int main(void) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 
+    // INITIALIZE
+
+    Player player = CreatePlayer();
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
+        // UPDATE
+
+        PlayerMovement(&player);
+        PlayerAnimation(&player);
+
+        // DRAW
         BeginDrawing();
 
         ClearBackground(WHITE);
 
-        DrawText("Test", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 50, BLACK);
+        DrawTexture(player.playerTexture, player.playerCollision.x,
+                    player.playerCollision.y, WHITE);
+        DrawRectangleRec(player.playerCollision, BLUE);
 
         EndDrawing();
     }
