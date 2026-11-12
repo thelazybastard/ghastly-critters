@@ -1,9 +1,16 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.29)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
 project(gc)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+find_program(MOLD_LINKER mold)
+
+if (MOLD_LINKER)
+  set(CMAKE_LINKER_TYPE "MOLD")
+endif()
 
 set(RAYLIB_VERSION 6.2)
 find_package(raylib ${RAYLIB_VERSION} QUIET)
