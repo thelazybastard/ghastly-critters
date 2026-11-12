@@ -32,6 +32,8 @@ set(CMAKE_C_FLAGS )
 
 add_executable(${PROJECT_NAME} 
   src/main.c
+  player.c
+  player.h
 )
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic)
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
